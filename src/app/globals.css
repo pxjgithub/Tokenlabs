@@ -1,15 +1,13 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +18,64 @@
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
+  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-nav {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Fluid Organic Animations - Independent paths for each blob */
+@keyframes blob-1 {
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(10vw, 5vh) scale(1.35); }
+  50% { transform: translate(3vw, 15vh) scale(0.85); }
+  75% { transform: translate(-5vw, 5vh) scale(1.25); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes blob-2 {
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-8vw, 8vh) scale(1.3); }
+  50% { transform: translate(-3vw, -5vh) scale(0.8); }
+  75% { transform: translate(4vw, 6vh) scale(1.2); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes blob-3 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(6vw, -8vh) scale(1.3); }
+  66% { transform: translate(-5vw, -3vh) scale(0.85); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.animate-blob-1 {
+  animation: blob-1 20s infinite ease-in-out alternate;
+}
+
+.animate-blob-2 {
+  animation: blob-2 24s infinite ease-in-out alternate;
+}
+
+.animate-blob-3 {
+  animation: blob-3 28s infinite ease-in-out alternate;
+}
+
+/* Utility to ensure GPU acceleration */
+.animate-blob-1, .animate-blob-2, .animate-blob-3 {
+  will-change: transform;
 }
