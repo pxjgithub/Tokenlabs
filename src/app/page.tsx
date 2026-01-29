@@ -1,56 +1,74 @@
-"use client";
+import { HomePageClient } from "@/components/home-page-client";
+import { Metadata } from "next";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+export const metadata: Metadata = {
+  title: "TokenLabs - 将每一个 token 转化为用户价值",
+  description: "TokenLabs 是一家专注于 AI 产品孵化的实验室，致力于探索人工智能的无限可能。我们推出的产品包括 Mermaid AI 图表工具、维权问问法律助手等。",
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: "TokenLabs - AI 驱动的未来实验室",
+    description: "探索 AI 的无限可能，从 Mermaid AI 到智能法律助手。",
+    url: '/',
+  },
+};
 
 export default function Home() {
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TokenLabs",
+    "url": "https://tokenlabs.me",
+    "logo": "https://tokenlabs.me/icon.png",
+    "description": "将每一个 token 转化为用户价值",
+    "sameAs": [
+      "https://github.com/pxjgithub/Tokenlabs"
+    ]
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "TokenLabs 是什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TokenLabs (词元实验室) 是一家专注于 AI 产品孵化的实验室，致力于将每一个 token 转化为用户价值。我们探索人工智能的无限可能，开发各类 AI 驱动的实用工具。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "TokenLabs 有哪些产品？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TokenLabs 目前推出了多款 AI 产品，包括：Mermaid AI（AI 流程图生成工具）、维权问问（智能法律维权助手）、BOSS 合同（AI 合同审查助手）以及 Memory AI（个人记忆助手）。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mermaid AI 有什么用？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mermaid AI 是一款专业的 AI 驱动图表工具，用户只需通过自然语言描述，即可自动生成流程图、时序图、甘特图等，让想法表达更简单。"
+        }
+      }
+    ]
+  };
+
   return (
-    <div className="flex-1 flex flex-col items-center justify-center relative overflow-hidden">
-      <div className="container px-4 z-10 flex flex-col items-center text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <span className="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-wider text-white/50 uppercase border border-white/10 rounded-full bg-white/5 backdrop-blur-sm">
-            Project TokenLabs
-          </span>
-        </motion.div>
-
-        <motion.h1
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40 max-w-5xl px-4"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-        >
-          Token Labs
-        </motion.h1>
-
-        <motion.p
-          className="mt-8 text-lg md:text-xl text-white/60 max-w-2xl font-light leading-relaxed"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-        >
-          将每一个 token 转化为用户价值
-        </motion.p>
-
-        <motion.div
-          className="mt-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-        >
-          <Link
-            href="/products"
-            className="group flex items-center gap-2 px-6 py-3 text-sm font-medium text-black bg-white rounded-full hover:bg-white/90 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
-          >
-            探索我们的产品
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </motion.div>
-      </div>
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <HomePageClient />
+    </>
   );
 }

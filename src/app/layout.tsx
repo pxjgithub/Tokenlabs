@@ -14,8 +14,78 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "词元实验室 | TokenLabs",
-  description: "将每一个 token 转化为用户价值",
+  metadataBase: new URL("https://tokenlabs.me"),
+  title: {
+    default: "TokenLabs | 将每一个 token 转化为用户价值",
+    template: "%s | TokenLabs"
+  },
+  description: "TokenLabs 致力于将每一个 Token 转化为用户价值。我们孵化了 Mermaid AI, 维权问问, BOSS 合同等 AI 产品，探索人工智能的无限可能。",
+  keywords: [
+    "TokenLabs", 
+    "AI", 
+    "人工智能", 
+    "Mermaid AI", 
+    "维权问问", 
+    "BOSS合同", 
+    "AI实验室", 
+    "产品孵化", 
+    "LLM", 
+    "大模型应用",
+    "流程图生成",
+    "法律咨询AI",
+    "智能合同"
+  ],
+  authors: [{ name: "TokenLabs Team" }],
+  creator: "TokenLabs",
+  publisher: "TokenLabs",
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: "google-site-verification-code", // 请替换为实际的 Google 验证码
+    other: {
+      "baidu-site-verification": "baidu-site-verification-code" // 请替换为实际的百度验证码
+    }
+  },
+  openGraph: {
+    type: "website",
+    locale: "zh_CN",
+    url: "https://tokenlabs.me",
+    siteName: "TokenLabs",
+    title: "TokenLabs | 将每一个 token 转化为用户价值",
+    description: "TokenLabs 致力于将每一个 Token 转化为用户价值。我们孵化了 Mermaid AI, 维权问问, BOSS 合同等 AI 产品。",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "TokenLabs",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TokenLabs | 将每一个 token 转化为用户价值",
+    description: "TokenLabs 致力于将每一个 Token 转化为用户价值。",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
