@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,16 +32,12 @@ export const metadata: Metadata = {
     "产品孵化", 
     "LLM", 
     "大模型应用",
-    "流程图生成",
-    "法律咨询AI",
-    "智能合同"
+    "AIGC",
+    "智能体"
   ],
   authors: [{ name: "TokenLabs Team" }],
   creator: "TokenLabs",
   publisher: "TokenLabs",
-  alternates: {
-    canonical: '/',
-  },
   robots: {
     index: true,
     follow: true,
@@ -53,9 +50,9 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "google-site-verification-code", // 请替换为实际的 Google 验证码
+    google: "5Qb4rUe_A8lHhZLP9nBWnVhFpB0HN-BS7gxEQwQcdKQ",
     other: {
-      "baidu-site-verification": "baidu-site-verification-code" // 请替换为实际的百度验证码
+      "baidu-site-verification": "d8baa788e04f44c9d4195341486e6177"
     }
   },
   openGraph: {
@@ -65,25 +62,11 @@ export const metadata: Metadata = {
     siteName: "TokenLabs",
     title: "TokenLabs | 将每一个 token 转化为用户价值",
     description: "TokenLabs 致力于将每一个 Token 转化为用户价值。我们孵化了 Mermaid AI, 维权问问, BOSS 合同等 AI 产品。",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "TokenLabs",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "TokenLabs | 将每一个 token 转化为用户价值",
     description: "TokenLabs 致力于将每一个 Token 转化为用户价值。",
-    images: ["/og-image.png"],
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
   },
   manifest: '/manifest.json',
 };
@@ -93,11 +76,31 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TokenLabs",
+    "url": "https://tokenlabs.me",
+    "description": "TokenLabs 致力于将每一个 Token 转化为用户价值",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://tokenlabs.me/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <html lang="zh-CN" className="dark">
+      <head>
+        <meta name="baidu-site-verification" content="d8baa788e04f44c9d4195341486e6177" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white selection:bg-white/20`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white selection:bg-white/20 min-h-screen flex flex-col`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {/* Global Background Gradients */}
         <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-black">
           {/* Base Gradient - Subtle radial glow to break pure black */}
@@ -121,9 +124,10 @@ export default function RootLayout({
         </div>
 
         <Navbar />
-        <main className="min-h-screen pt-16 flex flex-col relative z-10">
+        <main className="flex-1 pt-16 flex flex-col relative z-10">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );

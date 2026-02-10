@@ -2,14 +2,33 @@ import { ProductsPageClient } from "@/components/products-page-client";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "产品中心 | TokenLabs - AI 创新工具集合",
-  description: "探索 TokenLabs 的 AI 产品矩阵：Mermaid AI 智能图表工具、维权问问法律助手、BOSS 合同助手等。用 AI 赋能工作与生活。",
+  title: "产品中心 | TokenLabs - Mermaid AI, 维权问问, BOSS 合同",
+  description: "探索 TokenLabs (词元实验室) 孵化的 AI 产品系列：Mermaid AI (AI 自动生成图表)、维权问问 (智能法律助手)、BOSS 合同 (AI 合同审查) 等。用 AI 技术赋能生产力。",
+  keywords: [
+    "Mermaid AI",
+    "维权问问",
+    "BOSS 合同",
+    "Memory AI",
+    "TokenLabs 产品",
+    "AI 工具集",
+    "智能生产力工具",
+    "AI 法律助手",
+    "AI 合同助手",
+    "文本转图表",
+    "AI思维导图",
+    "Markdown画图",
+    "流程图自动生成",
+    "AI律师",
+    "免费法律咨询",
+    "合同风险审查",
+    "AI办公神器"
+  ],
   alternates: {
     canonical: '/products',
   },
   openGraph: {
-    title: "TokenLabs 产品中心",
-    description: "发现最新的 AI 生产力工具，从图表生成到法律咨询。",
+    title: "TokenLabs AI 产品矩阵 | 赋能每一个 Token",
+    description: "从 Mermaid AI 到维权问问，探索 TokenLabs 孵化的系列创新 AI 工具。",
     url: '/products',
   },
 };

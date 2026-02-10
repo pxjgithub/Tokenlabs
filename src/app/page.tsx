@@ -2,14 +2,31 @@ import { HomePageClient } from "@/components/home-page-client";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "TokenLabs - 将每一个 token 转化为用户价值",
-  description: "TokenLabs 是一家专注于 AI 产品孵化的实验室，致力于探索人工智能的无限可能。我们推出的产品包括 Mermaid AI 图表工具、维权问问法律助手等。",
+  title: "TokenLabs - 词元实验室 | Mermaid AI 官方孵化器",
+  description: "TokenLabs (词元实验室) 是一家专注于 AI 产品孵化的实验室，成功孵化 Mermaid AI, 维权问问, BOSS 合同等智能工具。我们致力于通过大模型技术将每一个 Token 转化为实际的用户价值。",
+  keywords: [
+    "TokenLabs",
+    "词元实验室",
+    "Mermaid AI",
+    "Mermaid AI 官网",
+    "AI 流程图生成",
+    "维权问问",
+    "BOSS 合同",
+    "AI 产品孵化器",
+    "人工智能实验室",
+    "LLM 应用开发",
+    "AIGC",
+    "Generative AI",
+    "AI Agent",
+    "智能体",
+    "AI 效率工具"
+  ],
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "TokenLabs - AI 驱动的未来实验室",
-    description: "探索 AI 的无限可能，从 Mermaid AI 到智能法律助手。",
+    title: "TokenLabs - 词元实验室 | 探索 AI 的无限可能",
+    description: "发现由 TokenLabs 孵化的 Mermaid AI、维权问问等领先 AI 工具。我们专注于大模型应用落地，为用户创造价值。",
     url: '/',
   },
 };

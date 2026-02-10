@@ -18,7 +18,7 @@ const products: Product[] = [
   {
     id: 1,
     title: "Mermaid AI",
-    description: "专业的 AI 驱动图表工具，让想法表达更简单。",
+    description: "专业的 AI 驱动图表工具，文本一键生成流程图、思维导图、甘特图。",
     icon: Command,
     status: "已上线",
     href: "https://mermaid.tokenlabs.me/",
@@ -27,7 +27,7 @@ const products: Product[] = [
   {
     id: 2,
     title: "维权问问",
-    description: "让既懂法律法规，又懂你的 AI 助手给你专业的维权建议吧。",
+    description: "您的智能法律顾问，提供专业的劳动维权、合同纠纷与法律咨询建议。",
     icon: ShieldCheck,
     status: "即将上线",
     color: "from-yellow-500/20 to-orange-500/20",
@@ -35,7 +35,7 @@ const products: Product[] = [
   {
     id: 3,
     title: "BOSS 合同",
-    description: "替老板省力又赚钱的 AI 合同助手，才是好助手。",
+    description: "AI 合同审查助手，智能识别合同风险，替老板省力又赚钱。",
     icon: ReceiptText,
     status: "研发中",
     color: "from-purple-500/20 to-pink-500/20",
@@ -81,7 +81,7 @@ export function ProductsPageClient() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center mb-16"
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">推出的产品</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">TokenLabs 产品系列</h1>
         <p className="text-white/60 max-w-2xl mx-auto text-lg font-light">
           探索我们正在孵化的创新项目，体验 AI 带来的无限可能。
         </p>
